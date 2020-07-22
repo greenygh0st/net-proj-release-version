@@ -1,0 +1,18 @@
+name: .Net SDK Project file Version
+author: Jason Davis
+description: Get the Assembly Version from *.csproj files in newer .Net SDK projects
+
+inputs:
+    PROJ_FILE:
+        description: Filepath of the *.csproj file, relative to root of repository
+        required: true
+outputs:
+    ASSEMBLY_VERSION:
+        description: AssemblyVersion in the *.csproj file
+runs:
+    using: node12
+    main: index.js
+    
+branding:
+    icon: activity
+    color: gray-dark
