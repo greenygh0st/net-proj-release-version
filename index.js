@@ -11,10 +11,15 @@ function run()
 
     var xml = fs.readFileSync(filename, { encoding: 'utf-8' });
     
-    console.log(`XML:${os.EOL}${xml}`);
-    
-    
-    //process.stdout.write(`::set-output name=ASSEMBLY_VERSION::${ver}` + os.EOL)
+    var rgx = new RegExp('\\<AssemblyVersion\\>(.*)\\<\\/AssemblyVersion\\>', 'm');
+    var ver = rgx.exec(fs.readFileSync(aip, { encoding: 'utf-8' }))[1];
+
+    if (!ver)
+        throw new Error('Failed to get Assembly Version');
+
+    console.log(`Assembly Version: ${ver}`)
+   
+    process.stdout.write(`::set-output name=ASSEMBLY_VERSION::${ver}` + os.EOL)
 }
 
 run();
