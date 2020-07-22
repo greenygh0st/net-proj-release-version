@@ -9,10 +9,8 @@ function run()
 
     console.log(`Project File: ${filename}`);
 
-    var xml = fs.readFileSync(filename, { encoding: 'utf-8' });
-    
     var rgx = new RegExp('\\<AssemblyVersion\\>(.*)\\<\\/AssemblyVersion\\>', 'm');
-    var ver = rgx.exec(fs.readFileSync(aip, { encoding: 'utf-8' }))[1];
+    var ver = rgx.exec(fs.readFileSync(filename, { encoding: 'utf-8' }))[1];
 
     if (!ver)
         throw new Error('Failed to get Assembly Version');
