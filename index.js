@@ -1,6 +1,5 @@
 const fs = require('fs');
 const os = require("os");
-const parser = require('xml2json');
 
 function run()
 {
@@ -8,12 +7,11 @@ function run()
     if (!fs.existsSync(filename))
         throw new Error('Project file not found');
 
-    console.log(`Project File: ${filename}`)
+    console.log(`Project File: ${filename}`);
 
     var xml = fs.readFileSync(filename, { encoding: 'utf-8' });
-    var json = parser.toJson(xml);
     
-    console.log(json)
+    console.log(`XML:${os.EOL}${xml}`);
     
     
     //process.stdout.write(`::set-output name=ASSEMBLY_VERSION::${ver}` + os.EOL)
