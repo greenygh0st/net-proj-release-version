@@ -9,20 +9,20 @@ function run()
 
     console.log(`Project File: ${filename}`);
 
-    try
+    const txt = fs.readFileSync(filename, { encoding: 'utf-8' });
+    
+    var rgx = new RegExp('\\<AssemblyVersion\\>(.*)\\<\\/AssemblyVersion\\>', 'm');
+    var match = rgx.exec(txt);
+    if(!match)
     {
-        var rgx = new RegExp('\\<AssemblyVersion\\>(.*)\\<\\/AssemblyVersion\\>', 'm');
-        var ver = rgx.exec(fs.readFileSync(filename, { encoding: 'utf-8' }))[1];
-    }
-    catch (ex)
-    {
-        var rgx = new RegExp('\\<Version\\>(.*)\\<\\/Version\\>', 'm');
-        var ver = rgx.exec(fs.readFileSync(filename, { encoding: 'utf-8' }))[1];
+        rgx = new RegExp('\\<Version\\>(.*)\\<\\/Version\\>', 'm');
+        match = rgx.exec(txt);
     }
     
-    if (!ver)
+    if (!match)
         throw new Error('Failed to get Assembly Version');
 
+    var ver = match[1];
     console.log(`Assembly Version: ${ver}`)
    
     process.stdout.write(`::set-output name=ASSEMBLY_VERSION::${ver}` + os.EOL)
