@@ -11,7 +11,8 @@ function run()
 
     const txt = fs.readFileSync(filename, { encoding: 'utf-8' });
     
-    var rgx = new RegExp('\\<ReleaseVersion\\>(.*)\\<\\/ReleaseVersion\\>', 'm');
+    //var rgx = new RegExp('\\<ReleaseVersion\\>(.*)\\<\\/ReleaseVersion\\>', 'm');
+    var rgx = new RegExp('<ReleaseVersion>(.*)<\/ReleaseVersion>', 'gm');
     var match = rgx.exec(txt);
     if(!match)
     {
