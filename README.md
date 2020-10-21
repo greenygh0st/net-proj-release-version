@@ -1,4 +1,4 @@
-![Test the action](https://github.com/jasondavis303/net-sdk-proj-file-version/workflows/Test%20the%20action/badge.svg)
+![Test the action](https://github.com/greenygh0st/net-proj-release-version/workflows/Test%20the%20action/badge.svg)
 
 # net-proj-release-version
 GitHub action to get the ReleaseVersion from *.csproj files in newer .Net SDK projects
