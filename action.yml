@@ -1,6 +1,6 @@
 name: .Net SDK Project file Version
-author: Jason Davis
-description: Get the Assembly Version from *.csproj files in newer .Net SDK projects
+author: Dale Myszewski
+description: Get the Release Version from *.csproj files in newer .Net SDK projects
 
 inputs:
     PROJ_FILE:
@@ -8,7 +8,7 @@ inputs:
         required: true
 outputs:
     ASSEMBLY_VERSION:
-        description: AssemblyVersion in the *.csproj file
+        description: ReleaseVersion in the *.csproj file
 runs:
     using: node12
     main: index.js
