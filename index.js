@@ -11,7 +11,7 @@ function run()
 
     const txt = fs.readFileSync(filename, { encoding: 'utf-8' });
     
-    var rgx = new RegExp('\\<AssemblyVersion\\>(.*)\\<\\/AssemblyVersion\\>', 'm');
+    var rgx = new RegExp('\\<ReleaseVersion\\>(.*)\\<\\/ReleaseVersion\\>', 'm');
     var match = rgx.exec(txt);
     if(!match)
     {
@@ -20,12 +20,12 @@ function run()
     }
     
     if (!match)
-        throw new Error('Failed to get Assembly Version');
+        throw new Error('Failed to get Release Version');
 
     var ver = match[1];
     console.log(`Assembly Version: ${ver}`)
    
-    process.stdout.write(`::set-output name=ASSEMBLY_VERSION::${ver}` + os.EOL)
+    process.stdout.write(`::set-output name=RELEASE_VERSION::${ver}` + os.EOL)
 }
 
 run();
