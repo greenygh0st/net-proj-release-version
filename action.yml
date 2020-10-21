@@ -1,4 +1,4 @@
-name: .Net SDK Project file Version
+name: .NET - Get Project File ReleaseVersion
 author: Dale Myszewski
 description: Get the Release Version from *.csproj files in newer .Net SDK projects
 
