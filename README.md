@@ -29,7 +29,7 @@ jobs:
           PROJ_FILE: MyProject/MyProject.csproj
 
       -name: Next Step
-       run: echo "${{ steps.get_version.outputs.ASSEMBLY_VERSION }}"
+       run: echo "${{ steps.get_version.outputs.RELEASE_VERSION }}"
 ```
 
 ## Inputs
