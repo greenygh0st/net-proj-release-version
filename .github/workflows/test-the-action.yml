@@ -18,4 +18,4 @@ jobs:
         PROJ_FILE: ./.github/workflows/TestProject.csproj
         
     - name: Next Step
-      run: echo "${{ steps.get_version.outputs.ASSEMBLY_VERSION }}"
+      run: echo "${{ steps.get_version.outputs.RELEASE_VERSION }}"
